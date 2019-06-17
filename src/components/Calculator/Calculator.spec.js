@@ -5,27 +5,27 @@ import Display from "../Common/Display/Display";
 import Keypad from "../Common/Keypad/Keypad";
 
 describe("Calculator", () => {
-  let wrapper;
-  beforeEach(() => (wrapper = shallow(<Calculator />)));
+  let component;
+  beforeEach(() => (component = shallow(<Calculator />)));
 
   it("should render correctly", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   it("should render a <div />", () => {
-    expect(wrapper.find("div").length).toEqual(1);
+    expect(component.find("div").length).toEqual(1);
   });
 
   it("should render the Display component", () => {
     expect(
-      wrapper.containsAllMatchingElements([
-        <Display displayValue={wrapper.instance().state.displayValue} />,
+      component.containsAllMatchingElements([
+        <Display displayValue={component.instance().state.displayValue} />,
         <Keypad
-          callOperator={wrapper.instance().callOperator}
-          numbers={wrapper.instance().state.numbers}
-          operators={wrapper.instance().state.operators}
-          setOperator={wrapper.instance().setOperator}
-          updateDisplay={wrapper.instance().updateDisplay}
+          callOperator={component.instance().callOperator}
+          numbers={component.instance().state.numbers}
+          operators={component.instance().state.operators}
+          setOperator={component.instance().setOperator}
+          updateDisplay={component.instance().updateDisplay}
         />
       ])
     ).toEqual(true);

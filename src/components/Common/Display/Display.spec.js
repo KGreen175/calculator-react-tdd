@@ -3,19 +3,19 @@ import { shallow } from "enzyme";
 import Display from "./Display";
 
 describe("Display", () => {
-  let wrapper;
-  beforeEach(() => (wrapper = shallow(<Display displayValue={""} />)));
+  let component;
+  beforeEach(() => (component = shallow(<Display displayValue={""} />)));
 
   it("should render correctly", () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   it("should render a <div />", () => {
-    expect(wrapper.find("div").length).toEqual(1);
+    expect(component.find("div").length).toEqual(1);
   });
 
   it("should render the value of displayValue", () => {
-    wrapper.setProps({ displayValue: "test" });
-    expect(wrapper.text()).toEqual("test");
+    component.setProps({ displayValue: "test" });
+    expect(component.text()).toEqual("test");
   });
 });

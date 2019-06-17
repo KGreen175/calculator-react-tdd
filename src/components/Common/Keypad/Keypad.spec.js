@@ -3,9 +3,9 @@ import { shallow } from "enzyme";
 import Keypad from "./Keypad";
 
 describe("Keypad", () => {
-  let wrapper;
+  let component;
   beforeEach(() => {
-    wrapper = shallow(
+    component = shallow(
       <Keypad
         callOperator={jest.fn()}
         setOperator={jest.fn()}
@@ -17,6 +17,6 @@ describe("Keypad", () => {
   });
 
   it("should render a <div />", () => {
-    expect(wrapper.find("div").length).toEqual(1);
+    expect(component.find("div").length).toEqual(1);
   });
 });
